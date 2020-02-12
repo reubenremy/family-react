@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import Member from '../Members/Member';
 
 class App extends Component {
-    state
+    //State is initiated by assigning a JS object to it
+    state = {
+        Members: [
+            //Members wil be an Array [] of objects {}
+            { name: 'Reu', age:31 },
+            { name: 'Kay', age:28 },
+            { name: 'Rylee', age: 4 },
+            { name: 'Reva', age: 1 }
+        ]
+    }
 
     render() {
         return (
