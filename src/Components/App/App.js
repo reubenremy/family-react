@@ -6,7 +6,7 @@ class App extends Component {
     state = {
         Members: [
             //Members wil be an Array [] of objects {}
-            { name: 'Reu', age:31 },
+            { name: 'Reuben', age:31 },
             { name: 'Kay', age:28 },
             { name: 'Rylee', age: 4 },
             { name: 'Reva', age: 1 }
@@ -16,9 +16,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Member name='Reu' age='27'>Father of the Family</Member>
-                <Member name='Kay' age='24'>Mother of the Family</Member>
-                <Member name='Rylee' age='3'>Oldest Child in the Family</Member>
+                <Member name={ this.state.Members[0].name } age={ this.state.Members[0].age }>Father of the Family</Member>
+                <Member name={ this.state.Members[1].name } age={ this.state.Members[1].age }>Mother of the Family</Member>
+                <Member name={ this.state.Members[2].name } age={ this.state.Members[2].age }>Oldest Child of the Family</Member>
+                <Member name={ this.state.Members[3].name } age={ this.state.Members[3].age }>Youngest Child of the Family</Member>
                 <button>Switch Name</button>
             </div>
         );
