@@ -13,6 +13,10 @@ class App extends Component {
         ]
     }
 
+    switchNameHandler = () => {
+        console.log('This was clicked Successfully');
+    }
+
     render() {
         return (
             <div className="App">
@@ -20,7 +24,11 @@ class App extends Component {
                 <Member name={ this.state.Members[1].name } age={ this.state.Members[1].age }>Mother of the Family</Member>
                 <Member name={ this.state.Members[2].name } age={ this.state.Members[2].age }>Oldest Child of the Family</Member>
                 <Member name={ this.state.Members[3].name } age={ this.state.Members[3].age }>Youngest Child of the Family</Member>
-                <button>Switch Name</button>
+                {/* 
+                    - Remember that "This" refers to the class
+                    - Also you want to pass the method or "executable property" as a reference
+                */}
+                <button onClick={ this.switchNameHandler }>Switch Name</button>
             </div>
         );
     }
