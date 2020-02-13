@@ -44,10 +44,38 @@ class App extends Component {
                 }
             ]
         });
-    
+    }
+
+    nameChangeHandler = event => {
+        this.setState({
+            Members: [
+                { 
+                    name: 'Reuben', 
+                    age:31 
+                },{ 
+                    name: event.target.value, 
+                    age:28 
+                },{ 
+                    name: 'Rylee', 
+                    age: 4 
+                },{ 
+                    name: 'Reva', 
+                    age: 1 
+                }
+            ]
+        });
     }
 
     render() {
+        const style = {
+            backgroundColor:'#fff',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            borderRadius: '5px',
+            cursor: 'pointer'
+        };
+
         return (
             <div className="App">
                 <Member 
@@ -55,6 +83,7 @@ class App extends Component {
                     age={ this.state.Members[0].age }
                     //Version One of passing Props **Use this instead of V2 if you can**
                     click={ this.fullNameHandler.bind(this, 'John') }
+                    changed= { this.nameChangeHandler }
                     >Father of the Family</Member>
                 <Member 
                     name={ this.state.Members[1].name } 
@@ -73,8 +102,9 @@ class App extends Component {
                     - Also you want to pass the method or "executable property" as a reference
                 */}
                 <button 
-                //Version two of passing Props
-                onClick={ () => this.fullNameHandler('George') }
+                    style={style}
+                    //Version two of passing Props
+                    onClick={ () => this.fullNameHandler('George') }
                 >Full Name</button>
             </div>
         );
