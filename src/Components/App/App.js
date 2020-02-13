@@ -23,14 +23,14 @@ class App extends Component {
         ]
     }
 
-    fullNameHandler = () => {
+    fullNameHandler = newName => {
         // console.log('This was clicked Successfully');
         //DON'T DO THIS: this.state.Members[0].name = 'Reuben';
         //React doesn't recognize direct mutations to state without Component's Inherit method called "setState"
         this.setState({
             Members: [
                 { 
-                    name: 'Reuben', 
+                    name: newName, 
                     age:31 
                 },{ 
                     name: 'Kethny', 
@@ -53,6 +53,8 @@ class App extends Component {
                 <Member 
                     name={ this.state.Members[0].name } 
                     age={ this.state.Members[0].age }
+                    //Version One of passing Props **Use this instead of V2 if you can**
+                    click={ this.fullNameHandler.bind(this, 'John') }
                     >Father of the Family</Member>
                 <Member 
                     name={ this.state.Members[1].name } 
@@ -71,7 +73,8 @@ class App extends Component {
                     - Also you want to pass the method or "executable property" as a reference
                 */}
                 <button 
-                onClick={ this.fullNameHandler }
+                //Version two of passing Props
+                onClick={ () => this.fullNameHandler('George') }
                 >Full Name</button>
             </div>
         );
