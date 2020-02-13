@@ -1,14 +1,15 @@
 .members {
+    background-color: #fff;
     border: 1px solid #eee;
     border-radius: 5px;
-    box-shadow: 1px 5px 5px #ccc;
+    box-shadow: 1px 5px 5px #222;
     display: inline-block;
     margin: 5px;
     padding: 20px;
     text-align: center;
 } .members:hover {
     transform: scale(0.99);
-    box-shadow: 1px 3px 3px #ccc;
+    box-shadow: 1px 3px 3px #222;
 } .members:hover p {
     color: rgb(153, 5, 5);
 }

@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import Member from '../Members/Member';
+import './App.css';
 
 class App extends Component {
     //State is initiated by assigning a JS object to it
     state = {
         Members: [
             //Members wil be an Array [] of objects {}
-            { name: 'Reuben', age:31 },
+            { name: 'Reu', age:31 },
             { name: 'Kay', age:28 },
-            { name: 'Rylee', age: 4 },
-            { name: 'Reva', age: 1 }
+            { name: 'Rye', age: 4 },
+            { name: 'Vava', age: 1 }
         ]
     }
 
-    switchNameHandler = () => {
-        console.log('This was clicked Successfully');
+    fullNameHandler = () => {
+        // console.log('This was clicked Successfully');
+        //DON'T DO THIS: this.state.Members[0].name = 'Reuben';
+        //React doesn't recognize direct mutations to state without Component's Inherit method called "setState"
+        this.setState({
+            Members: [
+                { name: 'Reuben', age:31 },
+                { name: 'Kethny', age:28 },
+                { name: 'Rylee', age: 4 },
+                { name: 'Reva', age: 1 }
+            ]
+        });
+    
     }
 
     render() {
@@ -28,7 +40,9 @@ class App extends Component {
                     - Remember that "This" refers to the class
                     - Also you want to pass the method or "executable property" as a reference
                 */}
-                <button onClick={ this.switchNameHandler }>Switch Name</button>
+                <button 
+                onClick={ this.fullNameHandler }
+                >Full Name</button>
             </div>
         );
     }
