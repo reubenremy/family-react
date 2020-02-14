@@ -22,7 +22,7 @@ class App extends Component {
             }
         ],
         otherState: 'Some other Value',
-        showPersons: false
+        showMembers: true
     }
 
     fullNameHandler = newName => {
@@ -68,9 +68,9 @@ class App extends Component {
         });
     }
 
-    togglePersonsHandler = () => {
-        const doesShow = this.state.setPersons;
-        this.setState({ showPersons: !doesShow });
+    toggleMembersHandler = () => {
+        const doesShow = this.state.showMembers;
+        this.setState({ showMembers: !doesShow })
     }
 
     render() {
@@ -86,44 +86,33 @@ class App extends Component {
         return (
             <div className="App">
                 { 
-                    this.state.showPersons === true ? 
-                    {/* the code below is converted to react.createElement behind the scenes when Compilied */}
-                    <div>
+                    this.state.showMembers === true ? 
+                    (<div>
                         <Member 
                             name={ this.state.Members[0].name } 
                             age={ this.state.Members[0].age }
-                            //Version One of passing Props **Use this instead of V2 if you can**
-                            {/* click={ this.fullNameHandler.bind(this, 'John') } */}
-                            click={ this.toggleMembersHandler }
+                            click={ this.fullNameHandler.bind(this, 'John') }
                             changed= { this.nameChangeHandler }
                             >Father of the Family</Member>
-
                         <Member 
                             name={ this.state.Members[1].name } 
                             age={ this.state.Members[1].age }
                             >Mother of the Family</Member>
-
                         <Member 
                             name={ this.state.Members[2].name } 
                             age={ this.state.Members[2].age }
                             >Oldest Child of the Family</Member>
-                            
                         <Member 
                             name={ this.state.Members[3].name } 
                             age={ this.state.Members[3].age }
                             >Youngest Child of the Family</Member>
-                        {/* 
-                            - Remember that "This" refers to the class
-                            - Also you want to pass the method or "executable property" as a reference
-                        */}
-                    </div> : null
+                    </div>) : null
                 }
 
                 <button 
                     style={style}
-                    //Version two of passing Props
-                    onClick={ () => this.fullNameHandler('George') }
-                >Full Name</button>
+                    onClick={this.toggleMembersHandler}
+                >Show / Hide</button>
             </div>
         );
     }
