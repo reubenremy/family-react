@@ -7,43 +7,24 @@ class App extends Component {
     state = {
         Members: [
             //Members wil be an Array [] of objects {}
-            { 
-                name: 'Reu', 
-                age:31 
-            },{ 
-                name: 'Kay', 
-                age:28 
-            },{ 
-                name: 'Rye', 
-                age: 4 
-            },{ 
-                name: 'Vava', 
-                age: 1 
-            }
+            { name: 'Reu', age:31 },
+            { name: 'Kay', age:28 },
+            { name: 'Rye', age: 4 },
+            { name: 'Vava', age: 1 }
         ],
         otherState: 'Some other Value',
         showMembers: true
     }
 
     fullNameHandler = newName => {
-        // console.log('This was clicked Successfully');
         //DON'T DO THIS: this.state.Members[0].name = 'Reuben';
         //React doesn't recognize direct mutations to state without Component's Inherit method called "setState"
         this.setState({
             Members: [
-                { 
-                    name: newName, 
-                    age:31 
-                },{ 
-                    name: 'Kethny', 
-                    age:28 
-                },{ 
-                    name: 'Rylee', 
-                    age: 4 
-                },{ 
-                    name: 'Reva', 
-                    age: 1 
-                }
+                { name: newName, age:31 },
+                { name: 'Kethny', age:28 },
+                { name: 'Rylee', age: 4 },
+                { name: 'Reva', age: 1 }
             ]
         });
     }
@@ -51,19 +32,10 @@ class App extends Component {
     nameChangeHandler = event => {
         this.setState({
             Members: [
-                { 
-                    name: 'Reuben', 
-                    age:31 
-                },{ 
-                    name: event.target.value, 
-                    age:28 
-                },{ 
-                    name: 'Rylee', 
-                    age: 4 
-                },{ 
-                    name: 'Reva', 
-                    age: 1 
-                }
+                { name: 'Reuben', age:31 },
+                { name: event.target.value, age:28 },
+                { name: 'Rylee', age: 4 },
+                { name: 'Reva', age: 1 }
             ]
         });
     }
