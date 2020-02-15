@@ -13,4 +13,4 @@
     box-shadow: 1px 3px 3px #222;
 } .members:hover p {
     color: rgb(153, 5, 5);
-}
+} .members:active {};
